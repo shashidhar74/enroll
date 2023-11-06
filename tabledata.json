@@ -1,0 +1,78 @@
+{
+    "products": [
+        {
+            "id":1,
+        "productid":"001",
+         "productname":"Hp Laptop",
+         "quantity":10,
+         "cost":50000,
+         "colour":"black",
+         "config":"8GB+128GB"
+        },
+        {
+            "productid":"002",
+             "productname":"iphone",
+             "quantity":2,
+             "cost":50000,
+             "colour":"purple",
+             "config":"8GB+128GB"
+            },
+            {
+                "productid":"003",
+                 "productname":"Dell laptop",
+                 "quantity":10,
+                 "cost":50000,
+                 "colour":"white",
+                 "config":"8GB+128GB"
+                },
+                {
+                    "productid":"004",
+                     "productname":"Smart watch",
+                     "quantity":10,
+                     "cost":50000,
+                     "colour":"black",
+                     "config":"6GB+238GB"
+                    },
+                    {
+                        "productid":"005",
+                         "productname":"Redmi",
+                         "quantity":10,
+                         "cost":50000,
+                         "colour":"blue",
+                         "config":"6GB+238GB"
+                        },
+                        {
+                            "productid":"006",
+                             "productname":"Lenova laptop",
+                             "quantity":10,
+                             "cost":50000,
+                             "colour":"red",
+                             "config":"8GB+128GB"
+                            },
+                            {
+                                "productid":"007",
+                                 "productname":"Mac",
+                                 "quantity":10,
+                                 "cost":50000,
+                                 "colour":"white",
+                                 "config":"6GB+238GB"
+                                },
+                                {
+                                    "productid":"008",
+                                     "productname":"Realme",
+                                     "quantity":10,
+                                     "cost":50000,
+                                     "colour":"Green",
+                                     "config":"8GB+128GB"
+                                    },
+                                    {
+                                        "productid":"009",
+                                         "productname":"Samsung",
+                                         "quantity":10,
+                                         "cost":50000,
+                                         "colour":"white",
+                                         "config":"6GB+238GB"
+                                        }
+    ]
+   
+}
