@@ -1,0 +1,38 @@
+
+<div class=" p-2 fixed bg-slate-300 w-full" >
+    <button class="bg-blue-500 text-white px-4 py-2 rounded text-right" routerLink="/add-event">ADD Event</button>
+    <div class="flex items-center justify-center -mt-8">
+        <div class="relative text-gray-600 ">
+          <input
+            [(ngModel)]="searchText"
+            class="ml-16 w-96 border-2 border-gray-300 bg-white h-10 px-5 pr-10 rounded-lg text-sm focus:outline-none"
+            type="search"
+            name="search"
+            placeholder="Search by Event Name..."
+          >
+        </div>
+        <div class="" >
+            <button class="bg-blue-500 text-white px-4 py-2 rounded text-right" (click)=" searchEvents()">Search</button>
+        </div>
+      </div>
+</div>
+
+
+<div class="flex flex-wrap -mx-4 mt-14 p-5">
+    <div *ngFor="let event of filteredEvents" class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 px-4 mb-4">
+      <div class="bg-gray-200 p-6 rounded-lg shadow-md flex flex-col h-full">
+        <p><strong>Event Name:</strong></p>
+        <h2 class="text-xl font-semibold text-red-500">{{ event.eventname }}</h2>
+        <p class="mb-2"><strong>Code:</strong> {{ event.eventcode }}</p>
+        <p class="mb-2"><strong>Date:</strong> {{ event.eventdate }}</p>
+        <p class="mb-2"><strong>Type:</strong> {{ event.eventtype }}</p>
+        <p class="mb-2"><strong>Location:</strong> {{ event.eventlocation }}</p>
+        <p class="mb-2"><strong>Organizer:</strong> {{ event.eventorganizer }}</p>
+        <p *ngIf="event.eventDescription" class="mb-2"><strong>Description:</strong> {{ event.eventdescription }}</p>
+        <div class="mt-auto">
+          <button class="bg-blue-500 text-white px-4 py-2 rounded-full" [routerLink]="['/enroll', event.eventcode]">Enroll</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

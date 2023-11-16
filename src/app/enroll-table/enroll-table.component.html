@@ -1,0 +1,49 @@
+<div class="bg-slate-500">
+    <p class="text-center text-xl font-bold text-yellow-300">Enroll-table</p>
+  </div>
+  
+  <div class="relative text-gray-600">
+    <input
+      class="ml-16 border-2 border-gray-300 bg-white h-10 px-5 pr-10 rounded-lg text-sm focus:outline-none"
+      type="search"
+      name="search"
+      placeholder="Search by first_name..."
+    >
+  </div>
+  
+  <div class="container mx-auto p-5">
+    <table class="min-w-full bg-white border border-gray-300">
+      <thead>
+        <tr class="bg-blue-500">
+          <th class="py-2 px-4 border-b">FullName</th>
+          <th class="py-2 px-4 border-b">E-mail</th>
+          <th class="py-2 px-4 border-b">Event Name</th>
+          <th class="py-2 px-4 border-b">Event Code</th>
+          <th class="py-2 px-4 border-b">Event Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events | paginate: {
+          itemsPerPage: tablesize,
+          currentPage: page,
+          totalItems: events.length
+        }; let i = index">
+          <td class="py-2 px-4 border-b">{{ event.fullname }}</td>
+          <td class="py-2 px-4 border-b">{{ event.email }}</td>
+          <td class="py-2 px-4 border-b">{{ event.eventname }}</td>
+          <td class="py-2 px-4 border-b">{{ event.eventcode }}</td>
+          <td class="py-2 px-4 border-b">{{ event.eventlocation }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div>
+      <pagination-controls
+        previousLabel="pre"
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+  

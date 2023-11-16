@@ -1,0 +1,43 @@
+<div class="flex items-center justify-center mt-10">
+    <div class="w-full md:w-1/2 lg:w-1/2 bg-lightgray rounded-lg shadow p-2 bg-blue-200">
+      <div class="flex justify-center  mb-2">
+        <h2 class="text-xl font-semibold text-blue-600 ">User Profile</h2>
+        
+      </div>
+      <div class="flex justify-center">
+        <div class="rounded-full overflow-hidden w-12 h-12 border-2 border-blue-500">
+          <!-- You can add an avatar image here if available -->
+        </div>
+        <div class="ml-3">
+          <p class=" text-gray-600">User Name:</p>
+          <p class="text-gray-800 font-semibold">{{ user?.username }}</p>
+        </div>
+      </div>
+  
+      <div class="flex flex-wrap">
+        <div class="w-full sm:w-1/2 px-2 mt-3">
+          <p class="font-semibold text-gray-600">Id:</p>
+          <input class="text-gray-800 border-blue-600 p-2 rounded focus:outline-none w-full" [(ngModel)]="user.id" />
+        </div>
+  
+        <div class="w-full sm:w-1/2 px-2 mt-3">
+          <p class="font-semibold text-gray-600">E-mail:</p>
+          <input class="text-gray-800 border border-blue-400 p-2 rounded focus:outline-none w-full" [(ngModel)]="user.email" />
+        </div>
+  
+      </div>
+      <div class="flex flex-wrap">
+        <div class="w-full sm:w-1/2 px-2 mt-3">
+          <p class="font-semibold text-gray-600">First Name:</p>
+          <input class="text-gray-800 border-blue-600 p-2 rounded focus:outline-none w-full" [(ngModel)]="user.first_name" />
+        </div>
+  
+        <div class="w-full sm:w-1/2 px-2 mt-3">
+          <p class="font-semibold text-gray-600">Last Name:</p>
+          <input class="text-gray-800 border border-blue-400 p-2 rounded focus:outline-none w-full" [(ngModel)]="user.last_name" />
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  

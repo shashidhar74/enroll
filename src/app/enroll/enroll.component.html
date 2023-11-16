@@ -1,0 +1,52 @@
+
+<div class="form-container bg-blue-100 rounded">
+    <legend>  <p class="text-xl font-bold text-center">Enroll Event</p></legend>
+      
+      <form [formGroup]="enrollForm" class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+          <div>
+              <label for="eventCode" class="block text-gray-600 font-bold mb-2">
+                <i class="fas fa-calendar"></i> Event Code
+              </label>
+              <input type="text" id="eventCode" formControlName="eventCode"  class="border border-blue-500 py-2 px-4 w-full">
+            </div>
+        
+            <div>
+              <label for="eventName" class="block text-gray-600 font-bold mb-2">
+                <i class="fas fa-calendar"></i> Event Name
+              </label>
+              <input type="text" id="eventName" formControlName="eventName"  class="border border-blue-500 py-2 px-4 w-full">
+            </div>
+        
+            <div>
+              <label for="eventLocation" class="block text-gray-600 font-bold mb-2">
+                <i class="fas fa-map-marker"></i> Event Location
+              </label>
+              <input type="text" id="eventLocation" formControlName="eventLocation"  class="border border-blue-500 py-2 px-4 w-full">
+            </div>
+           
+        <div>
+          <label for="fullName" class="block text-gray-600 font-bold mb-2">
+            <i class="fas fa-user"></i> Full Name
+          </label>
+          <input type="text" id="fullName" formControlName="fullName" required class="border border-blue-500 py-2 px-4 w-full">
+        </div>
+    
+        <div>
+          <label for="emailAddress" class="block text-gray-600 font-bold mb-2">
+            <i class="fas fa-envelope"></i> Email Address
+          </label>
+          <input type="email" id="emailAddress" formControlName="emailAddress" required class="border border-blue-500 py-2 px-4 w-full">
+        </div>
+    
+        <div>
+          <label for="phoneNumber" class="block text-gray-600 font-bold mb-2">
+            <i class="fas fa-phone"></i> Phone Number
+          </label>
+          <input type="tel" id="phoneNumber" formControlName="phoneNumber" required class="border border-blue-500 py-2 px-4 w-full">
+        </div>
+  
+        <button type="submit" [disabled]="enrollForm.invalid" class="bg-blue-500 rounded p-2 text-white font-bold ml-36" style="height: 2rem; width: 6rem;" (click)="onSubmit()">Enroll</button>
+        <button type="submit" routerLink="/home" class="bg-blue-500 rounded  text-white font-bold " style="height: rem; width: 6rem;">Back</button>
+      </form>
+    </div>
+    

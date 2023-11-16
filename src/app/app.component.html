@@ -1,2 +1,65 @@
 
-  <app-table></app-table>
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()"> <mat-icon>menu</mat-icon></button>
+   <div class="text-lg">Event Management</div>
+   <div class="user">
+    <div class="text-gray-600">
+      <span *ngIf="user?.username; else loginLink" class="text-red-500">Welcome, {{ user.username }}</span>
+      <ng-template #loginLink><a routerLink="/login">Login</a></ng-template>
+    </div>
+    <div class="rounded-full overflow-hidden w-12 h-12 border-2 border-blue-500">
+    </div>
+  </div>
+ </mat-toolbar>
+ <!-- app.component.html -->
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav class="sidenav" mode="side">
+  
+   <div class="mt-5 ml-10">
+    <a [routerLink]="['home']" color="primary" >
+      <button mat-button >
+       <mat-icon>home</mat-icon>
+       <span class=" hover:text-blue-400 ">Home</span>
+       </button>
+     </a>
+   </div>
+   <div class="mt-5 ml-10">
+    <a [routerLink]="['profile']" color="primary" >
+      <button mat-button>
+       <mat-icon>account_circle</mat-icon>
+       <span class=" hover:text-blue-400 ">Account</span>
+       </button>
+     </a>
+   </div>
+   <div class="mt-5 ml-10">
+    <a [routerLink]="['events-table']" color="primary" >
+      <button mat-button>
+       <mat-icon>note_add</mat-icon>
+       <span class=" hover:text-blue-400 ">Event-table</span>
+       </button>
+     </a>
+   </div>
+   <div class="mt-5 ml-10">
+    <a [routerLink]="['enroll-table']" color="primary" >
+      <button mat-button>
+       <mat-icon>open_in_browser</mat-icon>
+       <span class=" hover:text-blue-400 ">Enrolled-Events</span>
+       </button>
+     </a>
+   </div>
+   <div class="mt-5 ml-10">
+    <a color="primary" >
+      <button mat-button (click)="logout()">
+       <mat-icon>power_settings_new</mat-icon>
+       <span class="text-red-600" >Logout</span>
+       </button>
+     </a>
+   </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  
+  </mat-sidenav-content>
+</mat-sidenav-container>

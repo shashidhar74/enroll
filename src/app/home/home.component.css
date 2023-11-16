@@ -1,0 +1,36 @@
+/* Styling for the event cards */
+.event-card {
+    background-color: #ffffff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
+    padding: 20px; /* Padding inside the card */
+    margin: 20px; /* Margin between cards */
+  }
+  
+  /* Heading style */
+  .event-card h2 {
+    font-size: 1.5rem; /* Adjust the font size */
+    font-weight: 600; /* Bold font weight */
+    margin-bottom: 10px; /* Margin below the heading */
+  }
+  
+  /* Property style */
+  .event-card p {
+    margin-bottom: 8px; /* Margin between properties */
+  }
+  
+  /* Enroll button style */
+  .event-card button {
+    background-color: #3498db; /* Blue background for the button */
+    color: #ffffff; /* White text color */
+    padding: 10px 20px; /* Padding inside the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+  /* Hover effect on the button */
+  .event-card button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+  }
+  

@@ -1,0 +1,67 @@
+<div class="form-container">
+    <p class="text-xl font-bold text-center underline">Add Event</p>
+    <form [formGroup]="addEvent" class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+      <div class="">
+        <label for="eventcode" class="block text-gray-600 font-bold mb-2">
+          <i class="fas fa-calendar"></i> Event Code
+        </label>
+        <input type="text" id="eventcode" formControlName="eventcode" required class="border rounded border-gray-500 py-2 px-4 w-full">
+      </div>
+  
+      <div class="">
+        <label for="eventName" class="block text-gray-600 font-bold mb-2">
+          <i class="fas fa-calendar"></i> Event Name
+        </label>
+        <input type="text" id="eventName" formControlName="eventName" required class="border rounded border-gray-500 py-2 px-4 w-full">
+      </div>
+  
+      <div class="">
+        <label for="eventDate" class="block text-gray-600 font-bold mb-2">
+          <i class="fas fa-calendar"></i> Event Date
+        </label>
+        <input type="date" id="eventDate" formControlName="eventDate" required class="border rounded border-gray-500 py-2 px-4 w-full">
+      </div>
+  
+      <div class="mb-6">
+        <label for="eventType" class="block text-gray-600 font-bold mb-2">
+          <i class="fas fa-calendar"></i> Event Type
+        </label>
+        <select id="eventType" formControlName="eventType" required class="border rounded border-gray-500 py-2 px-4 w-full">
+          <option value="" disabled selected>Select Event Type</option>
+          <option value="conference">Conference</option>
+          <option value="seminar">Seminar</option>
+          <option value="workshop">Workshop</option>
+          <option value="exhibition">Exhibition</option>
+          <option value="cultural-event">Cultural Event</option>
+        </select>
+      </div>
+  
+      <div class="">
+        <label for="eventLocation" class="block text-gray-600 font-bold mb-2">
+          <i class="fas fa-calendar"></i> Event Location
+        </label>
+        <input type="text" id="eventLocation" formControlName="eventLocation" required class="border rounded border-gray-500 py-2 px-4 w-full">
+      </div>
+  
+      <div class="">
+        <label for="eventOrganizer" class="block text-gray-600 font-bold mb-2">
+          <i class="fas fa-calendar"></i> Event Organizer
+        </label>
+        <input type="text" id="eventOrganizer" formControlName="eventOrganizer" required class="border rounded border-gray-500 py-2 px-4 w-full">
+      </div>
+  
+      <div class="">
+        <label for="eventDescription" class="block text-gray-600 font-bold mb-2">
+          <i class="fas fa-calendar"></i> Event Description
+        </label>
+        <textarea id="eventDescription" formControlName="eventDescription" cols="10" rows="3" class="border rounded border-gray-500 py-2 px-4 w-full"></textarea>
+      </div>
+     
+     <div>
+        <button type="submit" class="bg-blue-500 rounded p-2 text-white font-bold ml-14 mt-32" style="height: 2rem; width: 6rem;" (click)="saveEvent()">Create Event</button>
+     </div>
+     
+    </form>
+
+  </div>
+  
