@@ -4,10 +4,11 @@
    <div class="text-lg">Event Management</div>
    <div class="user">
     <div class="text-gray-600">
-      <span *ngIf="user?.username; else loginLink" class="text-red-500">Welcome, {{ user.username }}</span>
+      <span *ngIf="user?.username; else loginLink" class="text-white ">Welcome, {{ user.username }}</span>
       <ng-template #loginLink><a routerLink="/login">Login</a></ng-template>
     </div>
-    <div class="rounded-full overflow-hidden w-12 h-12 border-2 border-blue-500">
+    <div class="rounded-full overflow-hidden w-12 h-12 ">
+      <img src="/assets/img/img1.png" alt="" height="100px" width="100px">
     </div>
   </div>
  </mat-toolbar>

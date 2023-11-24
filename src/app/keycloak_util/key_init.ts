@@ -9,13 +9,16 @@ export function initializeKeycloak(
                 url: 'http://localhost:8080',
                 realm: 'Myform', 
                 clientId: 'demo_client',
-              
             },
             initOptions: {
                 onLoad: 'login-required', 
                 checkLoginIframe: false,
             },
-            
+           
         });
-    }
+      
+        
+    };
 }
+
+

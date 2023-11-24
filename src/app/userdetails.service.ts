@@ -1,14 +1,33 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './user';
+import { KeycloakService } from 'keycloak-angular';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserdetailsService {
   private url='http://localhost:8082'
-constructor(private http:HttpClient){}
+constructor(private http:HttpClient,private KeycloakService:KeycloakService){}
+
+
+  async getProtectedData(): Promise<void> {
+  if (await this.KeycloakService.isLoggedIn()) {
+    // Access token is available
+    const accessToken = this.KeycloakService.getKeycloakInstance().token;
+
+    // Include the access token in the request headers
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + accessToken,
+    });
+
+  
+  }
+}
+
+
 getUser(){
   console.log('url working',this.url)
   return this.http.get<User[]>(`${this.url}/api/userdata`)

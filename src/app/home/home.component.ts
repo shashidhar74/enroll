@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserdetailsService } from '../userdetails.service';
+import { KeycloakService } from 'keycloak-angular';
 
 
 @Component({
@@ -12,9 +13,21 @@ export class HomeComponent {
   filteredEvents: any[] = [];  
   searchText: string = '';
 
-  constructor(private eventService: UserdetailsService) {}
+  constructor(private eventService: UserdetailsService,private KeycloakService:KeycloakService) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    //await this.KeycloakService.init(); 
+    if (await this.KeycloakService.isLoggedIn()) {
+      // Access token is available
+      const accessToken = this.KeycloakService.getKeycloakInstance().token;
+      console.log('Access Token:', accessToken);
+
+      // ID token is available
+      const idToken = this.KeycloakService.getKeycloakInstance().idToken;
+      console.log('ID Token:', idToken);
+    }
+  
+
     this.eventService.getEvents().subscribe(
       (data) => {
         this.events = data;
@@ -24,6 +37,7 @@ export class HomeComponent {
         console.error('Error fetching events:', error);
       }
     );
+    
   }
  
   searchEvents() {
