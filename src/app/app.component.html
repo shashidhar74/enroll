@@ -1,5 +1,5 @@
 
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="primary">
   <button mat-icon-button (click)="sidenav.toggle()"> <mat-icon>menu</mat-icon></button>
    <div class="text-lg">Event Management</div>
    <div class="user">
@@ -49,6 +49,41 @@
        </button>
      </a>
    </div>
+
+   <div class="mt-5 ml-10">
+    <a [routerLink]="['sequelize']" color="primary" >
+      <button mat-button>
+       <mat-icon>book</mat-icon>
+       <span class=" hover:text-blue-400 ">Boks</span>
+       </button>
+     </a>
+   </div>
+
+   <div class="mt-5 ml-10">
+    <a [routerLink]="['charts']" color="primary" >
+      <button mat-button>
+       <mat-icon>assessment</mat-icon>
+       <span class=" hover:text-blue-400 ">Charts</span>
+       </button>
+     </a>
+   </div> 
+   <div class="mt-5 ml-10">
+    <a [routerLink]="['products']" color="primary" >
+      <button mat-button>
+       <mat-icon>dashboard</mat-icon>
+       <span class=" hover:text-blue-400 ">Products</span>
+       </button>
+     </a>
+   </div> 
+   <div class="mt-5 ml-10">
+    <a [routerLink]="['e-commerce']" color="primary" >
+      <button mat-button>
+       <mat-icon>dns</mat-icon>
+       <span class=" hover:text-blue-400 ">E-commerce-site</span>
+       </button>
+     </a>
+   </div> 
+
    <div class="mt-5 ml-10">
     <a color="primary" >
       <button mat-button (click)="logout()">

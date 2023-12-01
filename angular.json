@@ -30,7 +30,11 @@
               "src/styles.css",
               "node_modules/sweetalert2/src/sweetalert2.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/path-browserify/index.js",
+              "node_modules/chart.js/dist/chart.js",
+        "node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.js"
+            ]
           },
           "configurations": {
             "production": {

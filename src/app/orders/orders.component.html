@@ -1,0 +1,63 @@
+<div>
+  
+    <p class="underline text-red-500 text-lg  text-center font-bold">Your Order Details</p>
+
+
+    <div class="product-container ">
+        <div class="product-card" *ngFor="let product of orderData1">
+            <p class="text-xl">Status: <strong class="text-green-600">Success</strong></p>
+          <div class="product-content bg-gray-100 rounded">
+            <div class="product-image-container">
+              <img [src]="product.image" alt="{{ product.name }}" class="product-image"/>
+            </div>
+            <div class="product-details">
+              <h3><strong class="text-green-700">{{ product.name }}</strong></h3>
+              <p>Color: <strong>{{ product.color }}</strong></p>
+              <p>Description: <strong>{{ product.description }}</strong></p>
+              <div class="quantity">
+                <label for="">Quantity:</label>
+                <input type="text" class="inputbox" disabled [(ngModel)]="product.quantity">
+              </div>
+            </div>
+          </div>
+         
+        </div>
+        <table class="table-auto border ml-72">
+          <thead>
+            <tr class="border">
+              <th class="px-4 py-2 font-semibold text-red-600"># Payment Details</th>
+              <th><!-- your.component.html -->
+               
+                </th>
+            </tr>
+            <tr class="border">
+              <th class="px-4 py-2 border">Subtotal</th>
+              <th class="px-4 py-2 border">Shipping (all products included*)</th>
+              <th class="px-4 py-2 border">GST(5%)</th>
+              <th class="px-4 py-2 border">GrandTotal</th>
+            </tr>
+            
+          </thead>
+          <tbody>
+              <tr class="">
+                <td class="px-4 py-2 border">{{payment.subtotal| currency:'INR':true}}</td>
+                <td class="px-4 py-2 border">{{payment.shipping}}</td>
+                <td class="px-4 py-2 border">{{payment.gst}}</td>
+                <td class="px-4 py-2 border">{{payment.grandTotal}}</td>
+              </tr>
+              <tr>
+                <th>
+                  <div class="bg-slate-400 w-36 rounded m-auto"><button class="" (click)="generateInvoice()">Generate Invoice</button></div>
+                </th>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      
+      <div class="h-10"></div>  
+  </div>
+
+
+  
+  

@@ -1,0 +1,7 @@
+div {
+    margin-bottom: 20px;
+  }
+  .location-icon {
+    cursor: pointer;
+    margin-left: 5px; /* Add some spacing between input and icon */
+  }

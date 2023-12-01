@@ -1,5 +1,5 @@
 
-<div class=" p-2 fixed bg-slate-300 w-full" >
+<div class=" p-2 fixed bg-slate-300 w-full mt-3" >
     <button class="bg-blue-500 text-white px-4 py-2 rounded text-right" routerLink="/add-event">ADD Event</button>
     <div class="flex items-center justify-center -mt-8">
         <div class="relative text-gray-600 ">
@@ -16,9 +16,13 @@
         </div>
       </div>
 </div>
+<div class="mt-20">
+  
+  <app-charts></app-charts>
+  <hr>
+</div>
 
-
-<div class="flex flex-wrap -mx-4 mt-14 p-5">
+<div class="flex flex-wrap -mx-4 p-5">
     <div *ngFor="let event of filteredEvents" class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 px-4 mb-4">
       <div class="bg-gray-200 p-6 rounded-lg shadow-md flex flex-col h-full">
         <p><strong>Event Name:</strong></p>

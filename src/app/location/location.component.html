@@ -1,0 +1,24 @@
+<p class="mt-20">location works!</p>
+<!-- <h1>Geolocation Example</h1>
+    <button (click)="getLocation()">Get Location</button>
+    <div *ngIf="latitude !== null && longitude !== null">
+      <p>Latitude: {{ latitude }}</p>
+      <p>Longitude: {{ longitude }}</p>
+      <p *ngIf="city">City: {{ city }}</p>
+    </div> -->
+
+   <!-- location.component.html -->
+
+<div>
+    <span class="location-icon" (click)="getExactLocation()">📍</span>
+    <div *ngIf="location">
+      <p>City: {{ location.city }}</p>
+      <p>City: {{ location.neighbourhood }}</p>
+      <p>District: {{ location.district }}</p>
+      <p>Taluk: {{ location.taluk }}</p>
+      <p>Hobli: {{ location.hobli }}</p>
+      <p>Village: {{ location.village }}</p>
+      <p>Pincode: {{ location.pincode }}</p>
+    </div>
+  </div>
+  

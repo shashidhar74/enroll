@@ -37,7 +37,7 @@ export class EventsTableComponent {
         this.events = data;
         this.dataSource.data = data;
       });
-    
+   
   }
   deleteEvent(eventCode: string) {
   
@@ -99,4 +99,7 @@ onTableDataChange(event:any){
       console.log('Is admin:', isAdmin);
       return isAdmin;
     }
+
+    
+    
 }

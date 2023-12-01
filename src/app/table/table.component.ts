@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 export interface products{
+  id: number | undefined;
   productid:string,
   productname:string,
   quantity:string,

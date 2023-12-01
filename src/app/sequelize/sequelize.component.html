@@ -1,0 +1,172 @@
+<div class="h-10 bg-orange-600 mt-3"><H3 class=" text-lg text-center  text-green-400">Manage Your Books</H3></div>
+<div class="loading-spinner" *ngIf="loadingBar">
+  <div class="loading-bar"></div>
+</div>
+<div class="h-5"></div>
+<mat-accordion class="head">
+  <mat-expansion-panel class="custom-expansion-panel" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="title">
+       Add Book
+      </mat-panel-title>
+      <mat-panel-description>
+       <!--This is a summary of the content--> 
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div>
+      <form (submit)="onSubmit()">
+        <div class="">
+          <label for="bookname" class="block text-gray-600 font-bold mb-2">
+            Book Name
+          </label>
+          <input type="text" id="bookname" [(ngModel)]="bookname" name="bookname"  class="border rounded border-gray-500 py-2 px-4 w-full">
+        </div>
+        <div class="">
+          <label for="authour_id" class="block text-gray-600 font-bold mb-2">
+           Authour Id
+          </label>
+          <input type="text" id="authour_id" [(ngModel)]="authour_id" name="authour_id" required  class="border rounded border-gray-500 py-2 px-4 w-full">
+        </div>
+        <div class="">
+          <label for="authour_name" class="block text-gray-600 font-bold mb-2">
+           Authour Name
+          </label>
+          <input type="text" id="authour_name" [(ngModel)]="authour_name" name="authour_name" required class="border rounded border-gray-500 py-2 px-4 w-full">
+        </div>
+        <div>
+          <button type="submit" class="bg-blue-500 rounded p-2 text-white font-bold mt-7" style="height: 2rem; width: 6rem;" >Add</button>
+       </div>
+       <div *ngIf="successMessage1" class="text-green-600 mt-2">
+        {{ successMessage1 }}
+      </div>
+      </form>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+<div class="h-4"></div>
+  <mat-accordion class="head-1">
+    <mat-expansion-panel class="custom-expansion-panel" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="title">
+         View Books here
+        </mat-panel-title>
+        <mat-panel-description>
+         <!--This is a summary of the content--> 
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <p class="bg-green-300  rounded-lg shadow-lg p-2 font-semibold">Total Number of Books: {{ totalBooks }}</p>
+    <ul>
+     
+      <li *ngFor="let book of books">
+        <div class="h-3"></div>
+        <div class="bg-blue-500 text-white p-2 rounded-lg shadow-lg">
+          <p class="text-sm font-semibold mb-2 text-yellow-300">Book Details</p>
+          <p class="text-green-400">
+            The book ID is <strong class="text-white">{{ book.id }}</strong>,
+            Name of the book is <strong class="text-white">{{ book.bookname }}</strong>,
+            Written by <strong class="text-white">{{ book.authour_name }}</strong>.
+          </p>
+        </div>
+        
+      </li>
+    </ul>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  <div class="h-4"></div>
+  <mat-accordion class="head-1">
+    <mat-expansion-panel class="custom-expansion-panel" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="title">
+        Delete Book
+        </mat-panel-title>
+        <mat-panel-description>
+         <!--This is a summary of the content--> 
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <div class="">
+          <label for="bookname" class="block text-gray-600 font-bold mb-2">
+            Book Name
+          </label>
+          <input type="text" placeholder="Enetr book name to delete..." id="bookname" [(ngModel)]="bookname" name="bookname"  class="border rounded border-gray-500 py-2 px-4 w-full">
+        </div>
+        <div>
+          <button type="submit" class="bg-red-500 rounded p-2 text-white font-bold mt-7" style="height: 2rem; width: 6rem;" (click)="onDelete()">Delete</button>
+       </div>
+       <div *ngIf="successMessage" class="text-red-600 mt-2">
+        {{ successMessage }}
+      </div>
+      <div *ngIf="errorMessage" class="text-red-600 mt-2">
+        {{ errorMessage }}
+      </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  <div class="h-4"></div>
+  <mat-accordion class="head-1">
+    <mat-expansion-panel class="custom-expansion-panel" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="title">
+        Edit/Update Book
+        </mat-panel-title>
+        <mat-panel-description>
+         <!--This is a summary of the content--> 
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <div class="">
+          <label for="bookname" class="block text-gray-600 font-bold mb-2">
+            Book Name
+          </label>
+          <input type="text" placeholder="Enetr book name to delete..." id="bookname" [(ngModel)]="bookname" name="bookname"  class="border rounded border-gray-500 py-2 px-4 w-full">
+        </div>
+        <div>
+          <button type="submit" class="bg-blue-500 rounded p-2 text-white font-bold mt-7" style="height: 2rem; width: 6rem;" (click)="getBook()">get book</button>
+       </div>
+      </div>
+      <div *ngIf="bookDetails">
+        <h2>Edit Book Details</h2>
+        <form (submit)="onUpdate()">
+          <div class="">
+            <label for="bookname" class="block text-gray-600 font-bold mb-2">
+              Book Name
+            </label>
+            <input type="text" id="bookname" [(ngModel)]="bookDetails.bookname" name="bookname"  class="border rounded border-gray-500 py-2 px-4 w-full">
+          </div>
+          <div class="">
+            <label for="authour_id" class="block text-gray-600 font-bold mb-2">
+             Authour Id
+            </label>
+            <input type="text" id="authour_id" [(ngModel)]="bookDetails.authour_id" name="authour_id" required  class="border rounded border-gray-500 py-2 px-4 w-full">
+          </div>
+          <div class="">
+            <label for="authour_name" class="block text-gray-600 font-bold mb-2">
+             Authour Name
+            </label>
+            <input type="text" id="authour_name" [(ngModel)]="bookDetails.authour_name" name="authour_name" required class="border rounded border-gray-500 py-2 px-4 w-full">
+          </div>
+          <div>
+            <button type="submit" class="bg-green-500 rounded p-2 text-white font-bold mt-7" style="height: 2rem; width: 6rem;" >Update</button>
+         </div>
+         <div *ngIf="bookDetails" class="text-green-600 mt-2">
+          {{ fetchbook }}
+        </div>
+        </form>
+      </div>
+      <div *ngIf="!bookDetails" class="text-red-600 mt-2">
+        {{fetchbook}}
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+
+

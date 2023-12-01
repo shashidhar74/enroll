@@ -28,7 +28,20 @@ import { FormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { EnrollComponent } from './enroll/enroll.component';
 import { EnrollTableComponent } from './enroll-table/enroll-table.component';
-
+import { SequelizeComponent } from './sequelize/sequelize.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ChartsComponent } from './charts/charts.component';
+import { NgChartsModule } from 'ng2-charts';
+import { ProductsComponent } from './products/products.component';
+import { CartComponent } from './cart/cart.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { ECommerceComponent } from './e-commerce/e-commerce.component';
+import { LocationComponent } from './location/location.component';
+import { QRCodeModule } from 'angularx-qrcode';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatBadgeModule} from '@angular/material/badge';
+import { InvoiceComponent } from './invoice/invoice.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +54,15 @@ import { EnrollTableComponent } from './enroll-table/enroll-table.component';
     UpdateEventComponent,
     EnrollComponent,
     EnrollTableComponent,
+    SequelizeComponent,
+    ChartsComponent,
+    ProductsComponent,
+    CartComponent,
+    ECommerceComponent,
+    LocationComponent,
+    InvoiceComponent,
+    OrdersComponent,
+  
     
   ],
   imports: [
@@ -58,7 +80,13 @@ import { EnrollTableComponent } from './enroll-table/enroll-table.component';
     ReactiveFormsModule,
     NgxPaginationModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule,
+    NgChartsModule,
+    MatTabsModule,
+    QRCodeModule,
+    MatStepperModule,
+    MatBadgeModule
   ],
   providers: [
     UserdetailsService,AuthService,
