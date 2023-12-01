@@ -1,0 +1,86 @@
+.product-container {
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: space-between; /* Add space between items */
+    margin-top: 50px;
+  }
+  
+  .product-card {
+   
+    flex: 0 0 calc(25% - 16px); /* Each product card takes up one-fourth of the container width with some spacing */
+    margin: 8px; /* Adjust margin as needed */
+  height: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    border-radius: 8px;
+    padding: 16px;
+   
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+  }
+  
+.product-content {
+    display: flex;
+  }
+  .product-image {
+    width: 200px; /* Set a fixed width for the image */
+    height: 100px; /* Set a fixed height for the image */
+    margin-right: 10px;
+  }
+  
+  .product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .product-details {
+    margin-top: 0px;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: #007bff; /* Blue color for the price */
+  }
+  .badge{
+   
+  
+  }
+  .badge{
+    
+    margin-top: -20px;
+    background-color: red;
+    width: 15px;
+    height: 15px;
+  }
+  
+  .buttons1 {
+    margin-top: 12px;
+    display: flex;
+
+  }
+  
+  button {
+ 
+    color: #fff; /* White text */
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #218838; /* Darker green color on hover */
+  }
+  .inputbox{
+    width: 30px;
+    text-align: center;
+    
+  }
+  .btn-dark{
+    background-color: black;
+    padding: 0px 8px;
+    border-radius: 0%;
+  }
+  .selected-tab {
+    color: green; /* Set the desired text color for the selected tab */
+    text-decoration: underline;
+  }

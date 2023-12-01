@@ -1,0 +1,129 @@
+<!-- cart.component.html -->
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button> -->
+<mat-horizontal-stepper linear #stepper class="stepper">
+  <mat-step >
+    <ng-template matStepLabel>Added to cart</ng-template>
+    <div class="product-container">
+      <div class="product-card" *ngFor="let product of cartItems">
+        <div class="product-content">
+          <div><img [src]="product.image" alt="{{ product.name }}" class="product-image" /></div>
+          <div class="product-details">
+            <h3><strong>{{ product.name }}</strong></h3>
+            <p>Price: <span class="price">{{ product.price | currency:'USD':true }}</span></p>
+            <p>Color: <strong>{{ product.color }}</strong></p>
+            <p>Description: <strong>{{ product.description }}</strong></p>
+            <div class="quantity">
+              <label for="">Quantity:</label>
+              <input type="text" class="inputbox" disabled [(ngModel)]="product.quantity">
+    
+            </div>
+            <button class="" (click)="removeFromCart(product)">Remove</button>
+          </div>
+        </div>
+      
+      </div>
+      <hr><br>
+      <button mat-button matStepperNext class="ml-80">Next to Confirm</button>
+    </div>
+  </mat-step>
+  <mat-step   >
+    <ng-template matStepLabel>Confirm order</ng-template>
+    <div class="product-container">
+      <div class="product-card" *ngFor="let product of cartItems">
+        <div class="product-content">
+          <div><img [src]="product.image" alt="{{ product.name }}" class="product-image" /></div>
+          <div class="product-details">
+            <h3><strong>{{ product.name }}</strong></h3>
+            <!-- <p>Price: <span class="price">{{ product.price | currency:'USD':true }}</span></p> -->
+            <p>Color: <strong>{{ product.color }}</strong></p>
+            <p>Description: <strong>{{ product.description }}</strong></p>
+            <div class="quantity">
+              <label for="">Quantity:</label>
+              <input type="text" class="inputbox" disabled [(ngModel)]="product.quantity">
+    
+            </div>
+            <div class="text-end p-5 ml-32">
+              <p class="font-semibold text-red-600">#Payment Details</p>
+              <p>Item quantity: {{ product.quantity }}</p>
+              <p>Price: {{ (product.price || 0) * (product.quantity || 0) | currency:'INR':true }}</p>
+              <p>Shipping: {{ calculateShipping(product) | currency:'INR':true }}</p>
+              <p>GST (5%): {{ calculateOneGST(product)| currency:'INR':true }}</p>
+              <p class="font-bold">Grand Total: {{ calculateGrandTotal(product) | currency:'INR':true }}</p>
+           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr><br>
+    <button mat-button matStepperPrevious class="ml-72">Back</button>
+    <button mat-button matStepperNext class="ml-5">Payment</button>
+  </mat-step>
+  <mat-step  >
+    <ng-template matStepLabel>Address&Payment Details</ng-template>
+    <div class=" items-center">
+     <div><label for="" class="text-xl mr-2">Add Address</label></div>
+      <input type="text" class="h-10 border border-gray-300 px-3 rounded-md" style="width: 600px;" [value]="locationDetails">
+      <p class="text-blue-500 underline cursor-pointer" (click)="getLocation()"><i class="fa fa-map-marker" aria-hidden="true"></i>Use current location</p>
+      <p>Scan this QR code for location</p>
+      <div class=""><qrcode [qrdata]="qrCodeData || 'default'" [width]="150"></qrcode></div>
+    </div>
+    <br>
+    <hr>
+    <div >
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <td class="px-4 py-2 font-semibold text-red-600">#Payment Details</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th class="px-4 py-2">Description</th>
+            <th class="px-4 py-2">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+         
+          <tr>
+            <td class="px-4 py-2">Subtotal</td>
+            <td class="px-4 py-2">{{ paymentDetails.subtotal | currency:'INR':true }}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2">Shipping (all products included*)</td>
+            <td class="px-4 py-2">{{ paymentDetails.shipping | currency:'INR':true }}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2">GST (5%)</td>
+            <td class="px-4 py-2">{{ paymentDetails.gst | currency:'INR':true }}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 font-bold">Grand Total</td>
+            <td class="px-4 py-2 font-bold">{{ paymentDetails.grandTotal | currency:'INR':true }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <div class="buttons1">
+            <button mat-button matStepperPrevious class="ml-72">Back</button>
+            <button mat-button matStepperNext class="ml-5" (click)="removeFromlocal()">place order</button>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step  completed="false">
+    <ng-template matStepLabel>Order Successful</ng-template>
+  <div class="">
+    <i class="fa fa-check-circle ml-80" aria-hidden="true" style="color: green; font-size: 80px;"></i>
+    <h1 class="text-center">Thank You for order</h1>
+    <h2 class="text-center">congratulations your order is successfull</h2>
+  </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
+
+
+
+
+
+<router-outlet></router-outlet>

@@ -6,7 +6,6 @@ import { KeycloakService } from 'keycloak-angular';
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 
-
 @Component({
   selector: 'app-enroll-table',
   templateUrl: './enroll-table.component.html',
@@ -28,6 +27,7 @@ export class EnrollTableComponent {
         console.error('Error fetching events:', error);
       }
     );
+    
   }
   filterText:string='';
 page:number=1;
@@ -44,4 +44,5 @@ onTableDataChange(event:any){
     this.page=1;
     this.events;
     }
+    
 }

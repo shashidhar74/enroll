@@ -1,6 +1,7 @@
 
   .sidenav-container {
     height: 100%;
+    margin-top: 50px;
   }
   
   .sidenav {
@@ -14,3 +15,9 @@
     margin-left: auto;
   }
   /* Add this to your component's CSS file */
+.primary{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; 
+}

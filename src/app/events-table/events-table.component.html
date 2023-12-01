@@ -1,4 +1,4 @@
-<div class="bg-slate-500"><p class="text-center text-xl font-bold  text-yellow-300">Event-table</p></div>
+<div class="bg-slate-500 mt-3"><p class="text-center text-xl font-bold  text-yellow-300">Event-table</p></div>
 <!-- Inside your component's template (e.g., events.component.html) -->
 <div class="relative text-gray-600">
   <input [(ngModel)]="filterText"
@@ -32,7 +32,7 @@
           <td class="py-2 px-4 border-b">{{ event.eventdate | date:'mediumDate' }}</td>
           <td class="py-2 px-4 border-b">{{ event.eventtype }}</td>
           <td class="py-2 px-4 border-b">{{ event.eventorganizer }}</td>
-        
+         
           <td class="py-2 px-4 border-b">
             <button *ngIf="hasAdminRole()"  class="bg-blue-500 text-white py-1 px-2 rounded mr-2" (click)="openUpdateEventDialog(event)" >Edit</button>
             <button *ngIf="hasAdminRole()"  class="bg-red-500 text-white py-1 px-2 rounded" (click)="openConfirmationPopup(event.eventcode)">Delete</button>

@@ -6,6 +6,14 @@ import { AddEventComponent } from './add-event/add-event.component';
 import { EventsTableComponent } from './events-table/events-table.component';
 import { EnrollComponent } from './enroll/enroll.component';
 import { EnrollTableComponent } from './enroll-table/enroll-table.component';
+import { SequelizeComponent } from './sequelize/sequelize.component';
+import { ChartsComponent } from './charts/charts.component';
+import { ProductsComponent } from './products/products.component';
+import { CartComponent } from './cart/cart.component';
+import { ECommerceComponent } from './e-commerce/e-commerce.component';
+import { LocationComponent } from './location/location.component';
+import { OrdersComponent } from './orders/orders.component';
+
 
 
 const routes: Routes = [
@@ -37,7 +45,26 @@ const routes: Routes = [
  },
  {
   path:"enroll-table",component:EnrollTableComponent
+ },
+ {
+  path:"sequelize",component:SequelizeComponent
+ },
+ {
+  path:"charts",component:ChartsComponent
+ },
+ {
+  path:"products",component:ProductsComponent
+ },
+ {
+  path:"cart",component:CartComponent
+ },
+ {
+  path:"e-commerce",component:ECommerceComponent
+ },
+ {
+  path:"orders",component:OrdersComponent
  }
+
 ];
 
 @NgModule({

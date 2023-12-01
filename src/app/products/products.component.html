@@ -1,0 +1,29 @@
+  
+  <div class="product-container">
+    <div class="product-card" *ngFor="let product of productsList">
+      <div class="product-content">
+        <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
+        <div class="product-details">
+          <h3 ><strong>{{ product.name }}</strong></h3>
+          <p >Price: <span class="price">{{ product.price | currency:'INR':true }}</span></p>
+          <p>Color: <strong>{{ product.color }}</strong></p>
+          <p>Description: <strong>{{ product.description }}</strong></p>
+          <div class="quantity">
+            <button class="btn-dark" (click)="quantity(product,'min')"><strong>-</strong></button>
+            <input type="text" class="inputbox" disabled [(ngModel)]="product.quantity">
+            <button class="btn-dark" (click)="quantity(product,'max')"><strong>+</strong></button>
+          </div><br>
+          <hr>
+          <div class="buttons1">
+            <button (click)="buyNow()" class="bg-orange-400">Buy Now</button>
+            <button (click)="addToCart(product)"  [disabled]="productAlreadyExists" class="bg-orange-600 ml-10">
+              <i class="fa fa-cart-plus" aria-hidden="true"></i>Add to Cart
+            </button>
+        
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+  
