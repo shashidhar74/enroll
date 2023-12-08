@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Inject, Injectable } from '@angular/core';
 import { UserdetailsService } from '../userdetails.service';
 import { KeycloakService } from 'keycloak-angular';
+import { Route, Router } from '@angular/router';
 
 
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,10 +17,9 @@ export class HomeComponent {
   filteredEvents: any[] = [];  
   searchText: string = '';
 
-  constructor(private eventService: UserdetailsService,private KeycloakService:KeycloakService) {}
+  constructor(private eventService: UserdetailsService,private KeycloakService:KeycloakService,private router: Router) {}
 
   async ngOnInit(): Promise<void> {
-    //await this.KeycloakService.init(); 
     if (await this.KeycloakService.isLoggedIn()) {
       // Access token is available
       const accessToken = this.KeycloakService.getKeycloakInstance().token;
@@ -39,6 +42,7 @@ export class HomeComponent {
     );
     
   }
+
  
   searchEvents() {
     this.filteredEvents = this.events.filter(event =>

@@ -16,9 +16,9 @@ payment:any;
   constructor(private sharedDataService: CartServiceService) {}
   ngOnInit(): void {
     this.orderData1 = JSON.parse(localStorage.getItem('data') || '[]');
-    console.log('array',this.orderData1);
+    //console.log('array',this.orderData1);
     this.payment = JSON.parse(localStorage.getItem('cost') || '[]');
-  console.log('array',this.payment);
+  //console.log('array',this.payment);
   
 }
 generateInvoice(): void {

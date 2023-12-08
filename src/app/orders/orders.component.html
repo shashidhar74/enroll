@@ -11,7 +11,7 @@
               <img [src]="product.image" alt="{{ product.name }}" class="product-image"/>
             </div>
             <div class="product-details">
-              <h3><strong class="text-green-700">{{ product.name }}</strong></h3>
+              <h3><strong class="text-blue-700">{{ product.name }}</strong></h3>
               <p>Color: <strong>{{ product.color }}</strong></p>
               <p>Description: <strong>{{ product.description }}</strong></p>
               <div class="quantity">
@@ -26,7 +26,7 @@
           <thead>
             <tr class="border">
               <th class="px-4 py-2 font-semibold text-red-600"># Payment Details</th>
-              <th><!-- your.component.html -->
+              <th>
                
                 </th>
             </tr>
@@ -47,9 +47,11 @@
               </tr>
               <tr>
                 <th>
-                  <div class="bg-slate-400 w-36 rounded m-auto"><button class="" (click)="generateInvoice()">Generate Invoice</button></div>
+                  <!-- <div class="bg-slate-400 w-36 rounded m-auto"><button class="" (click)="generateInvoice()">Generate Invoice</button></div> -->
+                 
                 </th>
               </tr>
+              <a (click)="generateInvoice()" class="text-blue-500 cursor-pointer border-2 p-1 rounded underline">Download Invoice</a>
           </tbody>
         </table>
       </div>

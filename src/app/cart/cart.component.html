@@ -11,7 +11,7 @@
           <div><img [src]="product.image" alt="{{ product.name }}" class="product-image" /></div>
           <div class="product-details">
             <h3><strong>{{ product.name }}</strong></h3>
-            <p>Price: <span class="price">{{ product.price | currency:'USD':true }}</span></p>
+            <p>Price: <span class="price">{{ product.price | currency:'INR':true }}</span></p>
             <p>Color: <strong>{{ product.color }}</strong></p>
             <p>Description: <strong>{{ product.description }}</strong></p>
             <div class="quantity">
@@ -72,7 +72,7 @@
     </div>
     <br>
     <hr>
-    <div >
+    <div>
       <table class="table-auto">
         <thead>
           <tr>
@@ -117,6 +117,7 @@
     <i class="fa fa-check-circle ml-80" aria-hidden="true" style="color: green; font-size: 80px;"></i>
     <h1 class="text-center">Thank You for order</h1>
     <h2 class="text-center">congratulations your order is successfull</h2>
+    <a routerLink="/orders">Check order status</a>
   </div>
   </mat-step>
 </mat-horizontal-stepper>

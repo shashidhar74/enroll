@@ -32,16 +32,20 @@ import { SequelizeComponent } from './sequelize/sequelize.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ChartsComponent } from './charts/charts.component';
 import { NgChartsModule } from 'ng2-charts';
-import { ProductsComponent } from './products/products.component';
+import { ProductsComponent } from './e-site/products/products.component';
 import { CartComponent } from './cart/cart.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import { ECommerceComponent } from './e-commerce/e-commerce.component';
-import { LocationComponent } from './location/location.component';
+import { ECommerceComponent } from './e-site/e-commerce/e-commerce.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatBadgeModule} from '@angular/material/badge';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { OrdersComponent } from './orders/orders.component';
+import { FooterComponent } from './footer/footer.component';
+import { AuthGuard } from './auth/auth.guard';
+import { NgOptimizedImage } from '@angular/common'
+import { FilterPipe } from './filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -59,9 +63,10 @@ import { OrdersComponent } from './orders/orders.component';
     ProductsComponent,
     CartComponent,
     ECommerceComponent,
-    LocationComponent,
+    FilterPipe,
     InvoiceComponent,
     OrdersComponent,
+    FooterComponent,
   
     
   ],
@@ -71,6 +76,7 @@ import { OrdersComponent } from './orders/orders.component';
     BrowserAnimationsModule,
     MatSortModule,
     MatTableModule,
+    MatTabsModule,
     MatPaginatorModule,
     HttpClientModule,
     MatToolbarModule,
@@ -88,7 +94,7 @@ import { OrdersComponent } from './orders/orders.component';
     MatStepperModule,
     MatBadgeModule
   ],
-  providers: [
+  providers: [KeycloakService,AuthGuard,
     UserdetailsService,AuthService,
     {
       provide: HTTP_INTERCEPTORS,

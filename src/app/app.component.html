@@ -4,7 +4,11 @@
    <div class="text-lg">Event Management</div>
    <div class="user">
     <div class="text-gray-600">
-      <span *ngIf="user?.username; else loginLink" class="text-white ">Welcome, {{ user.username }}</span>
+      <span *ngIf="user?.username; else loginLink" class="text-white "> {{ user.username }} <br>
+        <div class="\">
+          <span>{{ currentTime | date: 'hh:mm:ss a' }}</span>
+        </div>
+      </span>
       <ng-template #loginLink><a routerLink="/login">Login</a></ng-template>
     </div>
     <div class="rounded-full overflow-hidden w-12 h-12 ">
@@ -68,7 +72,7 @@
      </a>
    </div> 
    <div class="mt-5 ml-10">
-    <a [routerLink]="['products']" color="primary" >
+    <a [routerLink]="['e-site/products']" color="primary" >
       <button mat-button>
        <mat-icon>dashboard</mat-icon>
        <span class=" hover:text-blue-400 ">Products</span>
@@ -76,7 +80,7 @@
      </a>
    </div> 
    <div class="mt-5 ml-10">
-    <a [routerLink]="['e-commerce']" color="primary" >
+    <a [routerLink]="['e-site/e-commerce']" color="primary" >
       <button mat-button>
        <mat-icon>dns</mat-icon>
        <span class=" hover:text-blue-400 ">E-commerce-site</span>

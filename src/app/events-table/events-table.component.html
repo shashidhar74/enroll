@@ -1,13 +1,13 @@
 <div class="bg-slate-500 mt-3"><p class="text-center text-xl font-bold  text-yellow-300">Event-table</p></div>
-<!-- Inside your component's template (e.g., events.component.html) -->
 <div class="relative text-gray-600">
-  <input [(ngModel)]="filterText"
-    class=" ml-16 border-2 border-gray-300 bg-white h-10 px-5 pr-10 rounded-lg text-sm focus:outline-none"
+  <input [(ngModel)]="filterText" 
+    class="ml-16 border-2 border-gray-300 bg-white h-10 px-5 pr-10 rounded-lg text-sm focus:outline-none"
     type="search"
     name="search"
-    placeholder="Search by first_name..."
+    placeholder="Search by Event Name..."
   >
 </div>
+
 <div class="container mx-auto p-5">
     <table class="min-w-full bg-white border border-gray-300">
       <thead>
@@ -22,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let event of events | paginate:{
+        <tr *ngFor="let event of events | filter:filterText|paginate:{
           itemsPerPage:tablesize,
           currentPage:page,
           totalItems:count
@@ -35,7 +35,7 @@
          
           <td class="py-2 px-4 border-b">
             <button *ngIf="hasAdminRole()"  class="bg-blue-500 text-white py-1 px-2 rounded mr-2" (click)="openUpdateEventDialog(event)" >Edit</button>
-            <button *ngIf="hasAdminRole()"  class="bg-red-500 text-white py-1 px-2 rounded" (click)="openConfirmationPopup(event.eventcode)">Delete</button>
+            <button *ngIf=" hasEditorRole()"  class="bg-red-500 text-white py-1 px-2 rounded" (click)="openConfirmationPopup(event.eventcode)">Delete</button>
           </td>
         </tr>
       </tbody>

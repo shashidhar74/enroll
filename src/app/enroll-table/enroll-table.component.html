@@ -3,11 +3,11 @@
   </div>
   
   <div class="relative text-gray-600">
-    <input
+    <input [(ngModel)]="filterText" 
       class="ml-16 border-2 border-gray-300 bg-white h-10 px-5 pr-10 rounded-lg text-sm focus:outline-none"
       type="search"
       name="search"
-      placeholder="Search by first_name..."
+      placeholder="Search by FullName......"
     >
   </div>
   
@@ -24,7 +24,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let event of events | paginate: {
+        <tr *ngFor="let event of events |filter:filterText| paginate: {
           itemsPerPage: tablesize,
           currentPage: page,
           totalItems: events.length
@@ -34,7 +34,6 @@
           <td class="py-2 px-4 border-b">{{ event.eventname }}</td>
           <td class="py-2 px-4 border-b">{{ event.eventcode }}</td>
           <td class="py-2 px-4 border-b">{{ event.eventlocation }}</td>
-         
         </tr>
       </tbody>
     </table>
@@ -48,4 +47,5 @@
       </pagination-controls>
     </div>
   </div>
+ 
   
