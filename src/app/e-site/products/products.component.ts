@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { products } from '../table/table.component';
-import { Products } from '../products';
+import { products } from '../../table/table.component';
+import { Products } from '../../products';
 import { ActivatedRoute } from '@angular/router';
-import { CartServiceService } from '../cart-service.service';
+import { CartServiceService } from '../../cart-service.service';
 import Swal from 'sweetalert2';
-
+import { NgOptimizedImage } from '@angular/common'
 
 
 
@@ -81,8 +81,6 @@ addToCart(product: any): void {
     this.inCart = true;
   }
 }
-
-
 localAddData(data: Products): void {
   let cartData: Products[] = [];
   let localCart = localStorage.getItem('localCart');

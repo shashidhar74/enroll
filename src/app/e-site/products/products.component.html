@@ -3,6 +3,7 @@
     <div class="product-card" *ngFor="let product of productsList">
       <div class="product-content">
         <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
+       
         <div class="product-details">
           <h3 ><strong>{{ product.name }}</strong></h3>
           <p >Price: <span class="price">{{ product.price | currency:'INR':true }}</span></p>
@@ -15,7 +16,7 @@
           </div><br>
           <hr>
           <div class="buttons1">
-            <button (click)="buyNow()" class="bg-orange-400">Buy Now</button>
+            <!-- <button routerLink="/cart" (click)="addToCart(product)" class="bg-orange-400">Buy Now</button> -->
             <button (click)="addToCart(product)"  [disabled]="productAlreadyExists" class="bg-orange-600 ml-10">
               <i class="fa fa-cart-plus" aria-hidden="true"></i>Add to Cart
             </button>
@@ -25,5 +26,6 @@
       </div>
     </div>
   </div>
+<app-footer></app-footer>
   <router-outlet></router-outlet>
   

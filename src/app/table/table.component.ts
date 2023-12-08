@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { Products } from '../products';
 export interface products{
   id: number | undefined;
   productid:string,
@@ -28,7 +29,7 @@ export class TableComponent {
   columns = ['productid', 'productname', 'quantity', 'cost', 'colour', 'config'];
   pageEvent: any; 
   ngOnInit():void{
-this.http.get('http://localhost:3000/products')
+this.http.get<Products[]>('http://localhost:3000/products')
 .subscribe((data:any)=>{
   console.log('products data--',data);
   

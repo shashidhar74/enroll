@@ -12,10 +12,7 @@ import * as QRCode from 'qrcode-generator';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-  isLinear = false;
-  confirm(){
-    this.isLinear = true;
-  }
+
 qty:number|undefined
 cost: string | number | undefined;
 svgString: any;
@@ -64,7 +61,6 @@ svgString: any;
    SHIPPING_RATE = 100; 
    GST_RATE = 0.05;
    calculateShipping(product: Products): number {
-  
     return this.SHIPPING_RATE;
   }
   calculateOneGST(product: Products): number {
@@ -92,8 +88,9 @@ svgString: any;
         const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}&addressdetails=1`;
         axios.get(apiUrl)
           .then((response) => {
-            console.log(response);
+            //console.log(response);
             const address = response.data.address;
+            localStorage.setItem('address', JSON.stringify(address));
             const Mainlatitude=response.data.boundingbox;
             const details = this.buildLocationDetails(address);
             this.locationDetails = details;

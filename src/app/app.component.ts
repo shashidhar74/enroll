@@ -10,6 +10,7 @@ import { KeycloakService } from 'keycloak-angular';
 })
 export class AppComponent {
   title = 'create_table';
+  currentTime: Date = new Date();
   constructor(private KeycloakService:KeycloakService){}
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
@@ -17,12 +18,12 @@ export class AppComponent {
     this.sidenav.close();
   }
   user: { username: string } = { username: '' };
-
+  
   ngOnInit(): void {
     this.KeycloakService.isLoggedIn().then((authenticated) => {
       if (authenticated) {
         this.KeycloakService.loadUserProfile().then((profile) => {
-          // Use the nullish coalescing operator to provide a default value
+  
           this.user = {
             username: profile.username ?? 'DefaultUsername'
           };
@@ -30,6 +31,9 @@ export class AppComponent {
         });
       }
     });
+    setInterval(() => {
+      this.currentTime = new Date();
+    }, 1000);
   }
   logout(){
     debugger;

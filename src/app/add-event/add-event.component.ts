@@ -38,13 +38,11 @@ export class AddEventComponent {
         eventDescription: this.addEvent.value.eventDescription,
       };
   
-      //console.log('Sending event data:', eventData);
-  
       this.service.addEventService(eventData).subscribe(
         (result: any) => {
           Swal.fire("Added sucessfully");
           this.eventData.reset();
-          //console.log('--result--', result);
+        
         },
         (error) => {
           console.error('Error saving event', error);

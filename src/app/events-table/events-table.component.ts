@@ -76,7 +76,7 @@ export class EventsTableComponent {
       data: eventData, 
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
+      //console.log('The dialog was closed', result);
     });
 }
 filterText:string='';
@@ -96,7 +96,12 @@ onTableDataChange(event:any){
     }
     hasAdminRole(): boolean {
       const isAdmin = this.KeycloakService.isUserInRole('admin');
-      console.log('Is admin:', isAdmin);
+     // console.log('Is admin:', isAdmin);
+      return isAdmin;
+    }
+    hasEditorRole(): boolean {
+      const isAdmin = this.KeycloakService.isUserInRole('editor');
+      //console.log('Is admin:', isAdmin);
       return isAdmin;
     }
 

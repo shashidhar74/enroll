@@ -1,0 +1,20 @@
+<mat-tab-group class="tab-group">
+    <mat-tab label="Products">  
+      <ng-template mat-tab-label>
+      <mat-icon>store</mat-icon> Products
+    </ng-template>
+    <app-products></app-products> 
+  </mat-tab>
+    <mat-tab label="Cart" [matBadge]="4" matBadgePosition="above" > 
+      <ng-template mat-tab-label>
+      <mat-icon>shopping_cart</mat-icon> Cart
+    </ng-template>
+    <app-cart></app-cart> 
+  </mat-tab>
+    <mat-tab label="Orders">  
+      <ng-template mat-tab-label>
+      <mat-icon>receipt</mat-icon> Orders
+    </ng-template>
+    <app-orders></app-orders>
+  </mat-tab>
+  </mat-tab-group>

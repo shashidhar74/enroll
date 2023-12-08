@@ -35,8 +35,6 @@ export class ChartsComponent {
         
         this.RenderChart(this.labeldata, this.realdata, 'bar', 'barchart', 1200, 1200);
       }
-     
-
     });
   }
 

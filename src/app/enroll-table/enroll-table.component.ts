@@ -29,7 +29,7 @@ export class EnrollTableComponent {
     );
     
   }
-  filterText:string='';
+filterText:string='';
 page:number=1;
 count:number=0;
 tablesize:number=5;

@@ -8,11 +8,14 @@ import { EnrollComponent } from './enroll/enroll.component';
 import { EnrollTableComponent } from './enroll-table/enroll-table.component';
 import { SequelizeComponent } from './sequelize/sequelize.component';
 import { ChartsComponent } from './charts/charts.component';
-import { ProductsComponent } from './products/products.component';
+import { ProductsComponent } from './e-site/products/products.component';
 import { CartComponent } from './cart/cart.component';
-import { ECommerceComponent } from './e-commerce/e-commerce.component';
-import { LocationComponent } from './location/location.component';
+import { ECommerceComponent } from './e-site/e-commerce/e-commerce.component';
+
 import { OrdersComponent } from './orders/orders.component';
+import { AuthGuard } from './auth/auth.guard';
+import { TableComponent } from './table/table.component';
+
 
 
 
@@ -25,26 +28,19 @@ const routes: Routes = [
     path:"home",component:HomeComponent
   },
   {
-    path:"events-table",component:EventsTableComponent
+    path:"events-table",component:EventsTableComponent 
   },
   {
     path:"enroll/:eventcode",component:EnrollComponent
-  },
-
-//   {
-//     path:"userdata",component:UserdataComponent,canActivate:[AuthGuard]
-//   },
-//   {
-//     path:"dashboard",component:DashboardComponent,canActivate: [AuthGuard] 
-//   }, 
+  }, 
   {
     path:"profile",component:ProfileComponent
   },
  {
-  path:"add-event",component:AddEventComponent
+  path:"add-event",component:AddEventComponent,canActivate: [AuthGuard], data: { roles: ['admin'] } 
  },
  {
-  path:"enroll-table",component:EnrollTableComponent
+  path:"enroll-table",component:EnrollTableComponent,canActivate: [AuthGuard], data: { roles: ['admin']}
  },
  {
   path:"sequelize",component:SequelizeComponent
@@ -53,16 +49,20 @@ const routes: Routes = [
   path:"charts",component:ChartsComponent
  },
  {
-  path:"products",component:ProductsComponent
+  path:"table",component:TableComponent
  },
  {
   path:"cart",component:CartComponent
  },
+//  {
+//   path:"e-commerce1",component:ECommerceComponent
+//  },
  {
-  path:"e-commerce",component:ECommerceComponent
+  path:'orders',component:OrdersComponent
  },
  {
-  path:"orders",component:OrdersComponent
+  path:'e-site',loadChildren:()=>import('./e-site/e-site.module').then(mod=>mod.ESiteModule),
+ 
  }
 
 ];
